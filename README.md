@@ -3,7 +3,7 @@
 万屋一家シリーズの勤之助はシンプルでよいツールですが、もう一声欲しい！と思ってしまうところがあります。
 そこを良くする [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=ja) のスクリプトです。
 
-本スクリプトは以下を改善します。
+本スクリプトでは以下を改善します。
 
 - HTTP でアクセスしてログインした際に「SSL でアクセスしてください」と怒られるので、予めリダイレクトしておく
 - 月初に出勤簿を表示した時は先月の出勤簿を表示する
@@ -16,4 +16,4 @@
 ## 設定
 
 1. [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=ja)を Chrome にインストールします。
-2. Tampermonkey の 設定画面のユーティリティの「URL からインストール」に `https://raw.githubusercontent.com/kaibadash/e4628_improvement/feature/dev1/index.js` をペーストします。
+2. Tampermonkey の 設定画面のユーティリティの「URL からインストール」に `https://raw.githubusercontent.com/kaibadash/motto_e4628/master/index.js` をペーストします。
