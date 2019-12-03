@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name       e4628_improvement
-// @namespace  https://github.com/kaibadash/e4628_improvement
+// @name       motto_e4628
+// @namespace  https://github.com/kaibadash/motto_e4628
 // @version    0.1
 // @description  Improve Yorozuya(kinnosuke)
 // @match      http*://www.e4628.jp/*
