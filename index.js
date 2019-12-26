@@ -25,6 +25,7 @@ window.onload = function() {
   showSheetInPreviousMonth();
   setDefaultRequest();
   setDefaultWorkEndTime();
+  addLoadingMovie();
 };
 
 // NOTE: httpの場合、httpsにリダイレクトする。こういうのはCDNやWebサーバでやると良いでしょう。
@@ -124,4 +125,29 @@ function setDefaultWorkEndTime() {
       forms[REQUEST_FORM_INDEX_MINUTE].selectedIndex = DEFAULT_END_MINUTE;
     };
   }
+}
+
+function addLoadingMovie() {
+  if (!document.getElementById("seal_list0")) {
+    return;
+  }
+  let signButton = document
+    .getElementById("seal_list0")
+    .getElementsByTagName("input")[0];
+  signButton.addEventListener(
+    "click",
+    function() {
+      let div = document.getElementsByTagName("body")[0];
+      let video = document.createElement("video");
+      let src = document.createElement("source");
+      src.src =
+        "https://github.com/kaibadash/motto_e4628/raw/feature/add_sign_movie/res/sign.mp4";
+      video.style =
+        "width: 200px; height: 200px; position:fixed; top: 20px; right: 20px; backgroud-color: tomato; background-color: #000;";
+      video.appendChild(src);
+      video.autoplay = true;
+      document.body.appendChild(video, div);
+    },
+    false
+  );
 }
