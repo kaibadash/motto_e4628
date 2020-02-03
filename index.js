@@ -83,7 +83,7 @@ function setDefaultRequest() {
   // select previous month
   let lastForm = forms[forms.length - 1];
   let lastSelects = lastForm.getElementsByTagName("select");
-  if (new Date().getMonth() == 1) {
+  if (new Date().getMonth() == 0) {
     let year = lastSelects[REQUEST_FORM_INDEX_YEAR];
     year.selectedIndex = year.selectedIndex - 1;
   }
