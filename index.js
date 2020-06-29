@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       motto_e4628
 // @namespace  https://github.com/kaibadash/motto_e4628
-// @version    0.2
+// @version    0.3
 // @description  Improve Yorozuya(kinnosuke)
 // @match      http*://www.e4628.jp/*
 // @author     kaibadash
@@ -80,7 +80,7 @@ function setDefaultRequest() {
   if (forms.length == 0) {
     return;
   }
-  // select previous month if it is beginning of month.
+  // Select previous month if it is beginning of month.
   let now = new Date();
   let lastForm = forms[forms.length - 1];
   let lastSelects = lastForm.getElementsByTagName("select");
