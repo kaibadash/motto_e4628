@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       motto_e4628
 // @namespace  https://github.com/kaibadash/motto_e4628
-// @version    0.2
+// @version    0.3
 // @description  Improve Yorozuya(kinnosuke)
 // @match      http*://www.e4628.jp/*
 // @author     kaibadash
@@ -20,7 +20,7 @@ const DEFAULT_END_MINUTE = 30;
 const FORM_INDEX_CORRECTION = 1;
 const START_OR_END_FORM_INDEX_END = 1;
 
-window.onload = function() {
+window.onload = function () {
   redirectToSSL();
   showSheetInPreviousMonth();
   setDefaultRequest();
@@ -80,15 +80,18 @@ function setDefaultRequest() {
   if (forms.length == 0) {
     return;
   }
-  // select previous month
+  // Select previous month if it is beginning of month.
+  let now = new Date();
   let lastForm = forms[forms.length - 1];
   let lastSelects = lastForm.getElementsByTagName("select");
-  if (new Date().getMonth() == 0) {
-    let year = lastSelects[REQUEST_FORM_INDEX_YEAR];
-    year.selectedIndex = year.selectedIndex - 1;
+  if (now.getDate() < 10) {
+    if (now.getMonth() == 0) {
+      let year = lastSelects[REQUEST_FORM_INDEX_YEAR];
+      year.selectedIndex = year.selectedIndex - 1;
+    }
+    let month = lastSelects[1];
+    month.selectedIndex = month.selectedIndex - 1;
   }
-  let month = lastSelects[1];
-  month.selectedIndex = month.selectedIndex - 1;
   // select default start time
   lastSelects[REQUEST_FORM_INDEX_HOUR].selectedIndex = DEFAULT_START_HOUR;
   lastSelects[REQUEST_FORM_INDEX_MINUTE].selectedIndex = DEFAULT_START_MINUTE;
@@ -112,7 +115,7 @@ function setDefaultWorkEndTime() {
     if (startOrEndSelect == undefined) {
       break;
     }
-    startOrEndSelect.onchange = function(event) {
+    startOrEndSelect.onchange = function (event) {
       let select = event.target;
       if (select.selectedIndex != START_OR_END_FORM_INDEX_END) {
         return;
@@ -136,7 +139,7 @@ function addLoadingMovie() {
     .getElementsByTagName("input")[0];
   signButton.addEventListener(
     "click",
-    function() {
+    function () {
       let div = document.getElementsByTagName("body")[0];
       let video = document.createElement("video");
       let src = document.createElement("source");
