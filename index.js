@@ -5,7 +5,8 @@
 // @description  Improve Yorozuya(kinnosuke)
 // @match      http*://www.e4628.jp/*
 // @author     kaibadash
-//
+// @grant        GM_addStyle
+// @grant        GM_getResourceText
 // ==/UserScript==
 
 const REQUEST_FORM_INDEX_YEAR = 0;
@@ -26,6 +27,7 @@ window.onload = function () {
   setDefaultRequest();
   setDefaultWorkEndTime();
   addLoadingMovie();
+  addStyle();
 };
 
 // NOTE: httpの場合、httpsにリダイレクトする。こういうのはCDNやWebサーバでやると良いでしょう。
@@ -153,4 +155,25 @@ function addLoadingMovie() {
     },
     false
   );
+}
+
+function addStyle() {
+  GM_addStyle(`
+  select {
+    height: 30px;
+    width: 55px;
+  }
+  input[type="button"][value="追加"]{
+    background-color: #e3eafc;
+    font-size: 2em;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 50px;
+    right: 0px;
+  }
+  input[type="button"][value="削除"]{
+    color: #f00; 
+  }
+  `);
 }
