@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       motto_e4628
 // @namespace  https://github.com/kaibadash/motto_e4628
-// @version    0.3
+// @version    0.4
 // @description  Improve Yorozuya(kinnosuke)
 // @match      http*://www.e4628.jp/*
 // @author     kaibadash
@@ -173,7 +173,7 @@ function addStyle() {
     right: 0px;
   }
   input[type="button"][value="削除"]{
-    color: #f00; 
+    color: #f00;
   }
   `);
 }
